@@ -7,8 +7,8 @@ This file creates your application.
 
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
-from .forms import AddUser
-from .models import UserProfile
+from forms import AddUser
+from models import UserProfile
 # from werkzeug.security import check_password_hash
 
 
@@ -27,7 +27,7 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
     
-@app.route('/profile', method=["POST"])
+@app.route('/profile', methods=['POST'])
 def profile():
     
     #instantiation of the form

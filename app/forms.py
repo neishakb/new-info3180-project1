@@ -9,7 +9,7 @@ class AddUser(FlaskForm):
     
     lastname = StringField('Last Name', validators=[DataRequired()])
     
-    gender = SelectField("Gender", choices=[('Male', 'Male'), ('Female', 'Female')]
+    gender = SelectField("Gender", choices=[('Male', 'Male'), ('Female', 'Female')])
     
     email = StringField('Email', validators=[DataRequired(), Email()])
     
@@ -18,7 +18,6 @@ class AddUser(FlaskForm):
     biography = TextAreaField('Biography', validators=[DataRequired()])
 
     photo = FileField('Profile Picture', validators=[ FileRequired(), FileAllowed(['jpg', 'png', 'IMAGES ONLY!'])] )
-
 
   
 
