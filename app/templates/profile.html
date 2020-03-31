@@ -6,7 +6,6 @@
   <hr></hr>
   
     
-    
     <form method="POST" enctype="multipart/form-data" action="{{ url_for('profile') }}" >
       
       {% include 'flash_messages.html' %}
@@ -17,7 +16,7 @@
         
         {{ form.firstname.label }}
         
-        {{ form.firstname(class='form-control' }}
+        {{ form.firstname(class='form-control') }}
         
       </div>
       
@@ -34,6 +33,7 @@
         {{ form.gender.label }}
         
         {{ form.gender(class="form-control", placeholder="Select Gender") }}
+        
       </div>
       
       <div class="form-group">
@@ -57,8 +57,18 @@
         {{ form.biography.label }}
         
         {{form.biography(class="form-control") }}
+        
       <div>
+        
+      <div class ="form-up">
+         
+        {{ form.photo.label }}
+          
+        {{ form.photo(class="form-control") }}
+          
+      </div>
       
+      <div></div>
       
       <button type="submit" name="submit" class="btn btn-primary btn-block">Add Profile</button>
       

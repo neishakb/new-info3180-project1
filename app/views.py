@@ -7,8 +7,9 @@ This file creates your application.
 
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
-from forms import AddUser
-from models import UserProfile
+from app.forms import AddUser
+from app.models import UserProfile
+import psycopg2
 # from werkzeug.security import check_password_hash
 
 
@@ -27,97 +28,73 @@ def about():
     """Render the website's about page."""
     return render_template('about.html')
     
-@app.route('/profile', methods=['POST'])
+@app.route('/profile', methods=['GET','POST'])
 def profile():
     
     #instantiation of the form
-    newUser = UserProfile()
+    user = AddUser()
     
     #making a post request and validating data on submission
-    if (request.method == "POST" and newUser.validate_on_submit()):
+    if (request.method == "POST" and user.validate_on_submit()):
         
-        #saving data to the database
-        newUser = UserProfile(request.form['id', request.form['firstname', request.form['lastname', request.form['gender',
-                  request.form['email', request.form['location', request.form['biography', request.form['photo']]]]]]]])
+        #doing things the original way and not being fancy 
+        
+        #taking data from the form and adding it to the db
+        
+        firstname = user.firstname.data
+        lastname = user.lastname.data
+        gender = user.gender.data
+        email = user.email.data
+        location = user.location.data
+        biography = user.biography.data 
+        
+        
+        photo = user.photo.data
+        
+        #saving the photo to the uploads folder
+        
+        filename = secure_filename(photo.filename)
+        photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        
+        newUser = UserProfile(first_name=firstname, last_name=lastname, gender=gender, email=email, location=location, biography=biography, photo="uploads"+filename)
+        
         
         db.session.add(newUser)
-        db.commmit()
+        db.session.commmit()
         
         
         flash('Your Profile has been Successfully added!')
+        return redirect(url_for('profiles'))
+        
+    return render_template("profile.html",form = user)
+        
+        #  photo = AddUser.photo.data
+
+        #  filename = secure_filename(photo.filename)
+        
+        #  photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    
+        # #saving data to the database
+        # user = UserProfile(request.form['firstname'], request.form['lastname'], request.form['gender'],
+        #           request.form['email'], request.form['location'], request.form['biography'])
+                  
+        
+        
+       
+        
+        
+       
         
     
-    return redirect(url_for('profiles'))
 
-app.route('/profiles')
+#profiles route
+@app.route('/profiles')
 def profiles():
-    return render_template('profiles.html')
-
-# @app.route("/login", methods=["GET", "POST"])
-# def login():
-#     if current_user.is_authenticated:
-#         return redirect(url_for('secure_page'))
-
-#     form = LoginForm()
-#     if request.method == "POST" and form.validate_on_submit():
-#         # change this to actually validate the entire form submission
-#         # and not just one field
-#         if form.username.data:
-#             # Get the username and password values from the form.
-
-#             # using your model, query database for a user based on the username
-#             # and password submitted. Remember you need to compare the password hash.
-#             # You will need to import the appropriate function to do so.
-#             # Then store the result of that query to a `user` variable so it can be
-#             # passed to the login_user() method below.
-
-#             # get user id, load into session
-#             username = form.username.data
-#             password = form.password.data 
-
-#             #not sure if i prefer this version yet
-#             #user = UserProfile.query.filter_by(username=username, password=password).first()
-
-#             user = UserProfile.query.filter_by(username=username).first()
-
-#             if user is not None and check_password_hash(user.password, password):
-#                 remember_me= False
-
-#                 if 'remember_me' in request.form:
-#                     remember_me= True
-                    
-                
-#                 login_user(user, remember_me)
-
-#                 flash('You Have Been Logged In Successfully!')
-
-#             # remember to flash a message to the user
-#             return redirect(url_for("secure_page"))  # they should be redirected to a secure-page route instead
-#         else:
-#             flash('Username or Password Incorrect! + "\n" Please Try Again.')
-
-#     page_not_found(form)
-#     return render_template("login.html", form=form)
+    return render_template("profiles.html")
 
 
-# # user_loader callback. This callback is used to reload the user object from
-# # the user ID stored in the session
-# @login_manager.user_loader
-# def load_user(id):
-#     return UserProfile.query.get(int(id))
 
-# #secure_page route
-# @app.route('/secure_page')
-# @login_required
-# def secure_page():
-#     return render_template("secure_page.html")
 
-# @app.route('/logout')
-# @login_required
-# def logout():
-#     logout_user()
-#     flash('You Have Been Successfully Logged Out!')
-#     return redirect(url_for('home'))
 
 
 ###
