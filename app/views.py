@@ -79,17 +79,11 @@ def profile():
         #           request.form['email'], request.form['location'], request.form['biography'])
                   
         
-        
-       
-        
-        
-       
-        
-    
 
 #profiles route
 @app.route('/profiles')
 def profiles():
+    
     return render_template("profiles.html")
 
 
