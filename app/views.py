@@ -5,11 +5,14 @@ Werkzeug Documentation:  http://werkzeug.pocoo.org/documentation/
 This file creates your application.
 """
 
+import os
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import AddUser
 from app.models import UserProfile
 import psycopg2
+from werkzeug.utils import secure_filename 
+
 # from werkzeug.security import check_password_hash
 
 
@@ -56,7 +59,7 @@ def profile():
         filename = secure_filename(photo.filename)
         photo.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         
-        newUser = UserProfile(first_name=firstname, last_name=lastname, gender=gender, email=email, location=location, biography=biography, photo="uploads"+filename)
+        newUser = UserProfile(first_name=firstname, last_name=lastname, gender=gender, email=email, location=location, biography=biography, photo="uploads/"+filename)
         
         
         db.session.add(newUser)
@@ -80,11 +83,14 @@ def profile():
                   
         
 
+#not sure if right but we'll see once i fix that error ... 
 #profiles route
 @app.route('/profiles')
 def profiles():
     
-    return render_template("profiles.html")
+    users = db.session.query(UserProfile).all
+    
+    return render_template("profiles.html", users=users)
 
 
 

@@ -27,11 +27,12 @@ class UserProfile(db.Model):
     
     photo = db.Column(db.String(120), unique=True)
     
-    user_created = db.Column(db.DateTime, default=datetime.datetime.utcnow())
+    user_created = db.Column(db.String(50), unique=True)
+    
+    # user_created = db.Column(db.DateTime, default=datetime.datetime.utcnow())
     
 
-    def __init__(self, id, first_name, last_name, gender, email, location, biography, photo,user_created):
-        self.id = id
+    def __init__(self, first_name, last_name, gender, email, location, biography, photo,user_created):
         self.first_name = first_name
         self.last_name = last_name
         self.gender = gender
@@ -40,6 +41,8 @@ class UserProfile(db.Model):
         self.biography = biography
         self.photo =photo
         self.user_created = user_created
+        
+        # datetime.datetime.utcnow().strftime("%d %m %Y")
         
 
     def is_authenticated(self):
