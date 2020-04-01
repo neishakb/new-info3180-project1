@@ -6,6 +6,7 @@ This file creates your application.
 """
 
 import os
+import datetime
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import AddUser
@@ -63,7 +64,7 @@ def profile():
         
         
         db.session.add(newUser)
-        db.session.commmit()
+        db.session.commit()
         
         
         flash('Your Profile has been Successfully added!')
@@ -91,11 +92,20 @@ def profiles():
     users = db.session.query(UserProfile).all
     
     return render_template("profiles.html", users=users)
+    
+    
+
+#"/profile/<userid>" route
 
 
 
 
+# #date function to be used in db
+# def getDate():
 
+#     today = datetime.datetime.utcnow()
+    
+    # return today.strftime("%d %m %Y")
 
 ###
 # The functions below should be applicable to all Flask apps.

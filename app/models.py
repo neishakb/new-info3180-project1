@@ -13,26 +13,26 @@ class UserProfile(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     
-    first_name = db.Column(db.String(120), unique=True)
+    first_name = db.Column(db.String(120))
     
-    last_name = db.Column(db.String(150), unique=True)
+    last_name = db.Column(db.String(150))
     
-    gender = db.Column(db.String(40), unique=True)
+    gender = db.Column(db.String(40))
     
-    email = db.Column(db.String(250), unique=True)
+    email = db.Column(db.String(250))
     
-    location = db.Column(db.String(300), unique=True)
+    location = db.Column(db.String(300))
     
-    biography = db.Column(db.String(450), unique=True)
+    biography = db.Column(db.String(450))
     
-    photo = db.Column(db.String(120), unique=True)
+    photo = db.Column(db.String(120))
     
-    user_created = db.Column(db.String(50), unique=True)
+    # user_created = db.Column(db.String(50), unique=True)
     
-    # user_created = db.Column(db.DateTime, default=datetime.datetime.utcnow())
+    user_created = db.Column(db.DateTime, default=datetime.datetime.utcnow()) 
     
 
-    def __init__(self, first_name, last_name, gender, email, location, biography, photo,user_created):
+    def __init__(self, first_name, last_name, gender, email, location, biography, photo):
         self.first_name = first_name
         self.last_name = last_name
         self.gender = gender
@@ -40,7 +40,7 @@ class UserProfile(db.Model):
         self.location = location
         self.biography = biography
         self.photo =photo
-        self.user_created = user_created
+        # self.user_created = user_created
         
         # datetime.datetime.utcnow().strftime("%d %m %Y")
         
