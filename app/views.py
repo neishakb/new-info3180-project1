@@ -89,8 +89,9 @@ def profile():
 @app.route('/profiles')
 def profiles():
     
-    users = db.session.query(UserProfile).all
+    # users = db.session.query(UserProfile).all
     
+    users = UserProfile.query.all()
     return render_template("profiles.html", users=users)
     
     

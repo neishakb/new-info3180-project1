@@ -12,23 +12,39 @@
       }
     </style>
     
-      
-       <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="..." class="card-img" alt="...">
-            </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title"> name 1 + name 2</h5>
-            <p><img src="{{ url_for('static', filename='./genloc_images/gender_img.PNG') }}" alt="gender image"> </p>
-            <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> </p>
-            <a href="#" class="btn btn-success">View Profile</a>
-          </div>
-        </div>
-      </div>
-    </div>
     
- 
+    
+    {% for people in users %}
+         <div class="card mb-3" style="max-width: 540px;">
+           
+            <div class="row no-gutters">
+              
+              <div class="col-md-4">
+                
+                <img src="{{ url_for('static', filename="uploads/" + people.photo)}}" class="card-img" alt="personal picture">
+                
+              </div>
+              
+          <div class="col-md-8">
+            
+            <div class="card-body">
+              
+              <h5 class="card-title"> name1 + "" name2</h5>
+              
+              <p><img src="{{ url_for('static', filename='./genloc_images/gender_img.PNG') }}" alt="gender image"> </p>
+              
+              <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> </p>
+              
+              <a href="#" class="btn btn-success">View Profile</a>
+              
+            </div>
+            
+          </div>
+          
+        </div>
+        
+      </div>
+      
+    {% endfor %}
     
 {% endblock %}
