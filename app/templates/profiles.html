@@ -29,15 +29,17 @@
             
             <div class="card-body">
               
-              <h5 class="card-title"> name1 + "" name2</h5>
+              <h5> {{ people.firstname }} + " "+ {{ people.lastname }} </h5>
               
-              <p><img src="{{ url_for('static', filename='./genloc_images/gender_img.PNG') }}" alt="gender image"> </p>
+              <p><img src="{{ url_for('static', filename='./genloc_images/gender_img.PNG') }}" alt="gender image"> {{people.gender}} </p>
               
-              <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> </p>
+              <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> {{people.location}} </p>
               
               <a href="#" class="btn btn-success">View Profile</a>
               
             </div>
+            
+            <a href="#" class="btn btn-success">View Profile</a>
             
           </div>
           
