@@ -92,12 +92,27 @@ def profiles():
     # users = db.session.query(UserProfile).all
     
     users = UserProfile.query.all()
+    print(users)
     return render_template("profiles.html", users=users)
     
     
 
 #"/profile/<userid>" route
-
+@app.route('/profile/<userid>')
+def individualPros(userid):
+    
+    individual = UserProfile.query.get(userid)
+    
+    firstname = individual.first_name
+    lastname = individual.last_name
+    email = individual.email
+    location = individual.location
+    userCreated = individual.user_created
+    biography = individual.biography
+    photo = individual.photo
+    
+    
+    return render_template("individualPro.html", individual=individual)
 
 
 
