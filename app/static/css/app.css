@@ -8,7 +8,9 @@ main{
 
 .card{
     width: 90%;
-    border-radius: 20px;
+    border-radius: 10px;
+    border-top-color: rgb(93, 188, 210);
+    border-top-width: 10px;
 }
     
 .container{
@@ -42,9 +44,21 @@ main{
     width: 15%;
 }
     
-button {
-    display:inline;
+#button .message {
+   
+    justify-content: center;
+    align-items: center;
     border-radius: 4px;
-    padding: 2% 2%;
-    position: relative;
+   
 }
+
+.align-center{
+    text-align:center;
+    display: flex;
+    padding-bottom: 20px;
+}
+
+
+
+
+
