@@ -19,7 +19,6 @@
                 
               </div>
               
-          <div class="col-md-8">
             
             <div class="card-body">
               
@@ -29,11 +28,14 @@
               
               <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> {{people.location}} </p>
               
-              <a href="#" class="btn btn-success">View Profile</a>
+             <div class="button">
+              
+              <a href= "{{ url_for('individualPros',userid=people.id) }}"> <button type="submit" name="submit" class="btn btn-success btn-block">View Profile</button></a>
               
             </div>
-            
-          </div>
+              
+            </div>
+          
           
         </div>
         

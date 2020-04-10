@@ -112,7 +112,11 @@ def individualPros(userid):
     photo = individual.photo
     
     
-    return render_template("individualPro.html", individual=individual)
+    return render_template("individualPro.html", people=individual)
+    
+# @app.route('/individualPro', methods=['GET','POST'])
+# def individualPro():
+#     return render_template("individualPro.html")
 
 
 
