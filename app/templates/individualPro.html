@@ -1,18 +1,5 @@
 {% extends "base.html" %}
 
-<style type="text/css">
-
-    .card{
-        width: 90%;
-        border-radius: 5px;
-    }
-    
-    .container{
-        padding: 2px 16px;
-    }
-    
-</style>
-
 {% block main %}
 
     <div class="card">
@@ -21,7 +8,7 @@
             <img src="{{ url_for('static', filename= people.photo) }}" alt="profile picture"/>
             
             <div class="spacetext">
-                <h5> {{ people.first_name }} {{ people.last_name }} </h5>
+                <p><h5> {{ people.first_name }} {{ people.last_name }} </h5></p>
                 <p><img src="{{ url_for('static', filename='./genloc_images/mail_img.PNG') }}" alt="gender image"> {{people.gender}} </p>
                 <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> {{people.location}} </p>
                 <p><img src="{{ url_for('static', filename='./genloc_images/calendar_img.PNG') }}" alt="date joined image"> {{people.user_created}} </p>
@@ -36,8 +23,8 @@
         </div>
         
         <div class="buttons">
-            <button type="submit" name="submit" class="btn btn-success btn-block">Send Message</button>
-             <button type="submit" name="submit" class="btn btn-primary btn-block">Follow</button>
+            <button type="submit" name="submit">Send Message</button>
+            <button type="submit" name="submit">Follow</button>
         </div>
         
         
