@@ -6,7 +6,7 @@ This file creates your application.
 """
 
 import os
-import datetime
+from datetime import date
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import AddUser
@@ -114,18 +114,13 @@ def individualPros(userid):
     
     return render_template("individualPro.html", people=individual)
     
-# @app.route('/individualPro', methods=['GET','POST'])
-# def individualPro():
-#     return render_template("individualPro.html")
+#date function to be used in db
+def getDate():
 
-
-
-# #date function to be used in db
-# def getDate():
-
-#     today = datetime.datetime.utcnow()
+    today = date.date.utcnow()
+   
     
-    # return today.strftime("%d %m %Y")
+    return today.strftime("%B %m %Y")
 
 ###
 # The functions below should be applicable to all Flask apps.

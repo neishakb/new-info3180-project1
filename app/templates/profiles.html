@@ -9,17 +9,18 @@
     
     
     {% for people in users %}
-         <div class="card mb-3" style="max-width: 540px;">
+    <div style="height:20%;" >
+         <div class="card mb-3" style="max-width: 750px;">
            
             <div class="row no-gutters">
               
               <div class="col-md-4">
                 
-                <img src="{{ url_for('static', filename= people.photo)}}" class="card-img" alt="personal picture"/>
+                <img  src="{{ url_for('static', filename= people.photo)}}" class="card-img" alt="personal picture"/>
                 
               </div>
               
-            
+            <div class="card-size">
             <div class="card-body">
               
               <h5> {{ people.first_name }} {{ people.last_name }} </h5>
@@ -28,9 +29,13 @@
               
               <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> {{people.location}} </p>
               
-             <div class="button">
+            </div>
+            </div>
+            
               
-              <a href= "{{ url_for('individualPros',userid=people.id) }}"> <button type="submit" name="submit" class="btn btn-success btn-block">View Profile</button></a>
+             <div id="button">
+              
+              <a href= "{{ url_for('individualPros',userid=people.id) }}"> <button type="submit" name="submit" class="btn btn-success increase-button2">View Profile</button></a>
               
             </div>
               
@@ -38,8 +43,8 @@
           
           
         </div>
+    </div>
         
-      </div>
       
     {% endfor %}
     

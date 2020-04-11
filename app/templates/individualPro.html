@@ -2,7 +2,9 @@
 
 {% block main %}
 
-    <div class="card">
+<div style="height:100vh;">
+
+    <div class="card" id="card" >
         
         <div class="space">
             <img src="{{ url_for('static', filename= people.photo) }}" alt="profile picture"/>
@@ -16,21 +18,22 @@
             </div>
         </div>
         
-        <div class="container">
+        <div id="container">
             <h3>About Me</h3>
             <p>{{ people.biography }}</p>
             
         </div>
         
         <div class="align-center">
-            <button type="submit" name="submit" class="btn btn-success btn-block">Send Message</button>
-            <button type="submit" name="submit" class="btn btn-primary btn-block">Follow</button>
+            <button type="submit" name="submit" class="btn btn-success increase-button">Send Message</button>
+            <button type="submit" name="submit" class="btn btn-primary increase-button">Follow</button>
         </div>
         
         
         
         
-    </div>    
+    </div> 
+</div>
 
     <!-- <div class="card">-->
            

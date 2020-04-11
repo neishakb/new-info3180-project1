@@ -4,6 +4,7 @@ body {
 
 main{
     background-color: rgb(235, 243, 250);
+    
 }
 
 .card{
@@ -13,12 +14,32 @@ main{
     border-top-width: 10px;
 }
     
-.container{
+#container{
     padding: 4px 16px;
 }
 
-.container h3{
+#container h3 {
     padding-top:3px;
+    color: grey;
+    
+}
+
+#container p{
+    color: grey;
+}
+
+.container{
+    align-items: center;
+}
+
+#button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-size{
+    width: 30%;
 }
     
 .space{
@@ -35,6 +56,10 @@ main{
 .spacetext{
     padding-left: 10%;
 }
+
+.spacetext h5{
+    font-weight: bold;
+}
     
 .spacetext img{
     width: 5%;
@@ -43,21 +68,47 @@ main{
 .spacetext p img{
     width: 15%;
 }
-    
-#button .message {
-   
-    justify-content: center;
-    align-items: center;
-    border-radius: 4px;
-   
-}
 
 .align-center{
     text-align:center;
-    display: flex;
-    padding-bottom: 20px;
+    /*display: flex;*/
+    padding-bottom: 35px;
 }
 
+.increase-button{
+    width: 30%;
+}
+.increase-button2{
+    width: 170%;
+}
+
+ .button {
+    /*width: 50%;*/
+    /*height: 80%;*/
+    padding-right: 5px;
+    font-size: 16px;
+   
+}
+
+.form-group{
+    font-weight: bold;
+    width: 60%;
+    padding-left: 5%;
+}
+
+.btn{
+    background-color: rgb(131, 213, 46);
+}
+
+.addprobtn{
+    padding-top: 40px;
+    justify-content: space-around;
+}
+
+.form-control{
+    padding: 0;
+    margin:0;
+}
 
 
 
