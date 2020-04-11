@@ -29,7 +29,7 @@ class UserProfile(db.Model):
     
     # user_created = db.Column(db.String(50), unique=True)
     
-    user_created = db.Column(db.DateTime, default=datetime.datetime.utcnow()) 
+    user_created = db.Column(db.DateTime, default=datetime.date.today()) 
     
 
     def __init__(self, first_name, last_name, gender, email, location, biography, photo):

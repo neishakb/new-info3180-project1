@@ -6,7 +6,7 @@ This file creates your application.
 """
 
 import os
-import datetime
+from datetime import date
 from app import app, db
 from flask import render_template, request, redirect, url_for, flash
 from app.forms import AddUser
@@ -111,7 +111,7 @@ def individualPros(userid):
     biography = individual.biography
     photo = individual.photo
     
-    month, day, year = userCreated.strftime("%B"), userCreated.day, userCreated.year
+    month, day, year
     
    
     
