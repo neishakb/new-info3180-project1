@@ -106,6 +106,15 @@ main{
     margin:0;
 }
 
+form{
+    padding:10px 10px;
+}
+
+textarea {
+    height: 200px;
+    width: 100px;
+}
+
 
 
 
