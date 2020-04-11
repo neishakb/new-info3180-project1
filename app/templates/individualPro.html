@@ -13,7 +13,7 @@
                 <p><h5> {{ people.first_name }} {{ people.last_name }} </h5></p>
                 <p><img src="{{ url_for('static', filename='./genloc_images/mail_img.PNG') }}" alt="gender image"> {{people.gender}} </p>
                 <p><img src="{{ url_for('static', filename='./genloc_images/location_img.PNG') }}" alt="location image"> {{people.location}} </p>
-                <p><img src="{{ url_for('static', filename='./genloc_images/calendar_img.PNG') }}" alt="date joined image"> {{people.user_created}} </p>
+                <p><img src="{{ url_for('static', filename='./genloc_images/calendar_img.PNG') }}" alt="date joined image"> Joined on {{month}} {{day}} {{year}} </p>
                 
             </div>
         </div>

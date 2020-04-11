@@ -116,15 +116,10 @@ def individualPros(userid):
    
     
     
-    return render_template("individualPro.html", people=individual)
+    return render_template("individualPro.html", people=individual, month=month, day=day, year=year)
     
 #date function to be used in db
-def getDate():
 
-    today = date.date.today()
-   
-    
-    return today.strftime("%B %m %Y")
 
 ###
 # The functions below should be applicable to all Flask apps.
