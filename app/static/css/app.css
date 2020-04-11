@@ -9,7 +9,7 @@ main{
 }
 
 header{
-    padding-bottom:10px;
+    padding-bottom:7px;
 }
 
 .card{
@@ -17,6 +17,7 @@ header{
     border-radius: 10px;
     border-top-color: rgb(93, 188, 210);
     border-top-width: 10px;
+ 
 }
     
 #container{
@@ -107,12 +108,12 @@ header{
 .form-group{
     font-weight: bold;
     width: 60%;
-    padding-left: 10%;
+    padding-left: 7%;
 }
 
 .addprobtn{
     /*padding-top: 40px;*/
-    padding-left: 10%;
+    padding-left: 7%;
     justify-content: space-around;
 }
 
