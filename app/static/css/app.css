@@ -1,10 +1,15 @@
 body {
-    padding-top: 5rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 
 main{
     background-color: rgb(235, 243, 250);
     
+}
+
+header{
+    padding-bottom:10px;
 }
 
 .card{
@@ -32,6 +37,10 @@ main{
     align-items: center;
 }
 
+.container.h1{
+    padding-top: 3px;
+}
+
 #button {
     display: flex;
     justify-content: center;
@@ -40,6 +49,11 @@ main{
 
 .card-size{
     width: 30%;
+}
+
+#profile{
+    width: 70%;
+    justify-content: center;
 }
     
 .space{
@@ -93,11 +107,12 @@ main{
 .form-group{
     font-weight: bold;
     width: 60%;
-    padding-left: 5%;
+    padding-left: 10%;
 }
 
 .addprobtn{
-    padding-top: 40px;
+    /*padding-top: 40px;*/
+    padding-left: 10%;
     justify-content: space-around;
 }
 
@@ -114,6 +129,12 @@ textarea {
     height: 200px;
     width: 100px;
 }
+
+.custom-file-input{
+    position: relative;
+}
+
+
 
 
 
